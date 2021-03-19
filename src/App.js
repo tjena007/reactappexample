@@ -5,12 +5,14 @@ import Languages from "./components/languages";
 import Translate from "./components/translate";
 
 export default function App() {
+  const [language, setlanguage] = useState("ru");
+  const [text, setText] = useState("");
   return (
     <div>
-      <Field />
-      <Languages />
+      <Field label="Enter English" onChange={setText} value={text} />
+      <Languages language={language} onLanguageChange={setLanguage} />
       <hr />
-      <Translate />
+      <Translate text={text} language={language} />
     </div>
   );
 }
